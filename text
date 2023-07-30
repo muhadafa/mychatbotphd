@@ -1,0 +1,400 @@
+To simulate a wireless communication Radio Frequency (RF) signal for your topic on path loss prediction in 5G networks using deep learning techniques, here's a suggested approach:
+
+i.	Define your simulation environment: Determine the specific characteristics of the mobile phone network you want to simulate. Consider factors like network size, node placement, transmission power, antenna characteristics, and other relevant parameters.
+
+To determine the specific characteristics of the mobile phone network you want to simulate, consider the following factors:
+
+Network size: Decide on the scale of the network you want to simulate. It could range from a small-scale network with a few nodes to a large-scale network with hundreds or thousands of nodes.
+
+Node placement: Determine the placement of nodes in the network. You can consider various placement strategies, such as random placement, grid-based placement, or following a specific pattern. The arrangement of nodes can impact the signal propagation and path loss characteristics.
+
+Transmission power: Specify the transmit power of each node in the network. Transmission power is usually measured in dBm and determines the signal strength emitted by the nodes. Different nodes may have different transmit power levels, which can affect the path loss and signal coverage.
+
+Antenna characteristics: Define the characteristics of the antennas used in the network. This includes parameters such as antenna gain, radiation pattern, polarization, and beamwidth. Antenna characteristics play a crucial role in determining the directionality and coverage of the transmitted RF signals.
+
+Frequency band: Specify the frequency band at which the network operates. The frequency band affects the propagation characteristics, path loss, and interference in the network. In the context of 5G, you may consider frequency bands such as sub-6 GHz or mmWave bands.
+
+Environmental factors: Consider the environmental factors that can influence signal propagation, such as terrain, buildings, foliage, and other obstacles. These factors can introduce additional path loss and affect the signal strength at different locations in the network.
+
+Receiver sensitivity: Determine the sensitivity of the receivers in the network. Receiver sensitivity is the minimum signal strength required for reliable communication. It influences the detection of signals and the ability to overcome path loss and noise.
+
+Interference model: Define the desired interference model or specify if a specific interference model needs to be implemented. Interference from other nodes or external sources can impact the signal quality and network performance.
+
+These characteristics will serve as inputs to your simulation model, allowing you to study the path loss and signal propagation in the mobile phone network. 
+
+ii.	Choose a simulation tool: Select a suitable simulation tool that can accurately model RF signal propagation and path loss in the mobile phone network. Some commonly used simulation tools for wireless communication include NS-3, MATLAB, and OPNET. Ensure that the selected tool supports the simulation of deep learning techniques if you plan to incorporate them.
+Among the commonly used simulation tools for wireless communication, NS-3, MATLAB, and OPNET, each has its own strengths and capabilities. Let's discuss whether these tools support the simulation of deep learning techniques:
+
+NS-3 (Network Simulator 3): NS-3 is an open-source network simulator specifically designed for research and education purposes. It provides a wide range of models and modules for simulating various aspects of wireless communication networks. While NS-3 is primarily focused on network-level simulations, it does not have built-in support for deep learning techniques. However, you can leverage the capabilities of NS-3 by integrating external deep learning frameworks such as TensorFlow or PyTorch to implement deep learning models and algorithms within your simulations.
+
+MATLAB: MATLAB is a widely used programming environment that offers a comprehensive set of tools and functions for various scientific and engineering applications. It provides functionalities for RF signal processing, wireless communication system modeling, and machine learning. With MATLAB, you can simulate wireless communication scenarios and incorporate deep learning techniques using its built-in deep learning toolbox. MATLAB supports popular deep learning frameworks and provides a user-friendly interface for developing and deploying deep learning models within your simulations.
+
+OPNET (now part of Riverbed Modeler): OPNET is a commercial simulation tool that focuses on network performance and traffic analysis. While it provides extensive capabilities for modeling and simulating communication networks, it does not have native support for deep learning techniques. Similar to NS-3, you can integrate external deep learning frameworks into your OPNET simulations to incorporate deep learning models.
+
+In summary, while NS-3 and OPNET may not have built-in support for deep learning techniques, we can still utilize them by integrating external deep learning frameworks. On the other hand, MATLAB provides a more streamlined approach with its built-in deep learning toolbox. Consider the specific requirements of the research and familiarity with these tools is essential for selecting the most suitable simulation tool for the thesis.
+
+iii.	Implement the path loss model: Based on your research gap and literature review, select an appropriate path loss model that reflects the characteristics of the wireless channel in a mobile phone network. Commonly used models include the free space path loss model, log-distance path loss model, or empirical models such as the Okumura-Hata or COST231 models. Implement the selected model in your simulation tool.
+Implementing a path loss model for your simulation involves selecting an appropriate model that reflects the characteristics of the wireless channel in a mobile phone network and integrating it into your simulation tool. Here's a conceptual framework to understand commonly used path loss models and how to implement them:
+
+a)	Free Space Path Loss Model:
+The free space path loss model assumes ideal propagation conditions without any obstacles or interference. It is based on the inverse square law, where the received signal power decreases with the square of the distance between the transmitter and receiver. The model is given by:
+PL(d) = 20log10(d) + 20log10(f) + 20log10(c),
+where PL(d) is the path loss in dB, d is the distance between the transmitter and receiver in meters, f is the frequency in Hz, and c is the speed of light in m/s.
+
+To implement the free space path loss model, you can define a function in your simulation tool that calculates the path loss based on the given formula. The function should take the distance, frequency, and other relevant parameters as inputs and return the corresponding path loss value.
+
+a.	Log-Distance Path Loss Model:
+The log-distance path loss model considers both the free space loss and additional factors such as the environment, antenna heights, and fading effects. It is given by:
+PL(d) = PL(d0) + 10nlog10(d/d0),
+where PL(d0) is the reference path loss at a reference distance d0, n is the path loss exponent, and d is the distance between the transmitter and receiver.
+To implement the log-distance path loss model, you need to determine the reference path loss and path loss exponent based on your research gap and literature review. Once determined, you can incorporate these values into your simulation tool and use them in the path loss calculation for different distances.
+
+b.	Empirical Models (Okumura-Hata or COST231):
+Empirical models such as the Okumura-Hata and COST231 models are widely used for path loss prediction in mobile phone networks. These models consider various environmental factors, such as terrain, building types, and frequencies.
+To implement these models, you need to obtain the necessary parameters specific to the model you choose. These parameters may include base station height, mobile station height, frequency, antenna characteristics, and environmental factors. Once you have the required parameters, you can use them in the respective formulas of the chosen model to calculate the path loss in your simulation.
+
+In the simulation tool, created functions or modules that incorporate the formulas of the selected path loss models. These functions/modules should take the required input parameters and return the corresponding path loss values. By integrating these functions/modules into our simulation tool, we can calculate the path loss for different scenarios and distances within our mobile phone network simulation.
+
+It's important to note that the specific implementation details may vary depending on the simulation tool you are using. Consult the documentation and resources of your chosen simulation tool for guidance on how to incorporate and utilize custom path loss models.
+
+iv.	Incorporate deep learning techniques: To fulfill your thesis objectives, you can integrate deep learning techniques into your simulation. Consider using deep learning models such as Convolutional Neural Networks (CNNs), Long Short-Term Memory Networks (LSTMs), or Recurrent Neural Networks (RNNs) to predict the path loss based on input parameters such as distance, frequency, antenna characteristics, etc. Train the deep learning model using appropriate datasets and incorporate it into your simulation tool.
+
+To incorporate deep learning techniques into your simulation and fulfill your thesis objectives, you can follow these steps:
+
+1.	Define input parameters: Determine the input parameters that will be used to predict path loss. This can include parameters such as distance, frequency, antenna characteristics, signal strength, terrain data, and any other relevant factors.
+
+2.	Data collection and dataset creation: Collect a diverse dataset that includes the defined input parameters and corresponding path loss values. This dataset should cover a wide range of scenarios and conditions to ensure the deep learning models can generalize well. You can obtain the dataset through various means, such as conducting measurement campaigns, using publicly available datasets, or generating synthetic data through simulations.
+
+3.	Preprocess and prepare the dataset: Clean and preprocess the dataset to ensure its quality and suitability for training the deep learning models. This may involve data cleaning, normalization, feature scaling, and splitting the dataset into training, validation, and testing sets.
+
+4.	Model selection and architecture design: Choose the appropriate deep learning models for path loss prediction, such as Convolutional Neural Networks (CNNs), Long Short-Term Memory Networks (LSTMs), and Recurrent Neural Networks (RNNs). Design the architecture of each model, considering the input parameters and the desired output (path loss prediction).
+
+5.	Training the deep learning models: Train the selected deep learning models using the prepared dataset. This involves feeding the input parameters to the models and adjusting the model's internal weights through an iterative optimization process. Use appropriate optimization algorithms (e.g., gradient descent) and loss functions to minimize the error between the predicted and actual path loss values.
+
+6.	Model evaluation and validation: Evaluate the trained models using the validation dataset to assess their performance and ensure they generalize well to unseen data. Measure performance metrics such as mean squared error (MSE), mean absolute error (MAE), or coefficient of determination (R-squared) to quantify the accuracy of the models.
+
+7.	Incorporating the models into the simulation tool: Once the deep learning models are trained and validated, incorporate them into your simulation tool (e.g., NS-3, MATLAB, or any other tool you are using). Write the necessary code or functions to integrate the trained models into the simulation framework. This will allow you to utilize the models to predict path loss based on the input parameters during the simulation runs.
+
+8.	Simulation and result analysis: Run the simulations using the integrated deep learning models. During the simulations, feed the input parameters to the models, and obtain the predicted path loss values. Analyze the results, compare them with the actual path loss values, and evaluate the accuracy and performance of the deep learning-based path loss prediction.
+
+Remember to fine-tune the hyperparameters of the deep learning models, such as learning rate, batch size, and number of layers, to optimize their performance. Also, consider using techniques like cross-validation to further assess the models' generalization capabilities.
+
+Regarding the dataset, as mentioned earlier, you can collect it through measurement campaigns, utilize publicly available datasets, or generate synthetic data through simulations. Measurement campaigns involve conducting actual measurements in a real-world environment to capture the relevant parameters and their corresponding path loss values. Publicly available datasets can be sourced from research organizations, wireless communication companies, or academic institutions. Synthetic data can be generated by simulating the propagation of RF signals using established models and algorithms.
+
+Ensure that the dataset is representative of the scenarios and conditions you aim to simulate in your thesis. It should cover a wide range of input parameter values to enable the deep learning models to learn and generalize effectively.
+
+
+To collect publicly available datasets for your thesis, you can explore the following sources:
+
+1.	Open Data repositories: Check websites that host open datasets, such as Kaggle (www.kaggle.com), UCI Machine Learning Repository (archive.ics.uci.edu/ml/index.php), and the IEEE DataPort (ieee-dataport.org).
+
+2.	Research organization websites: Visit websites of research organizations that focus on wireless communication, such as the National Institute of Standards and Technology (NIST), National Science Foundation (NSF), or publications from IEEE Xplore (ieeexplore.ieee.org) and ACM Digital Library (dl.acm.org).
+
+3.	Government agencies: Government agencies often provide datasets related to wireless communication research. For example, you can explore the Federal Communications Commission (FCC) website (www.fcc.gov) for publicly available wireless communication datasets.
+
+4.	Academic institutions: Check the websites of universities or research institutions that specialize in wireless communication or related fields. They may have publicly available datasets from their research projects.
+
+Ensure that you comply with any licensing or usage restrictions associated with the datasets you access.
+
+To generate synthetic data for simulating the propagation of RF signals, you can utilize established models and algorithms. One common approach is to use propagation models such as the Friis free space model, log-distance path loss model, or COST 231 Hata model. These models consider parameters such as distance, frequency, antenna characteristics, and environmental factors to simulate the path loss.
+
+You can implement these models in simulation tools like NS-3, MATLAB, or Python-based libraries (e.g., PyLayers or scikit-learn) to generate synthetic data. By varying the input parameters within a defined range and incorporating random variations, you can generate a diverse set of synthetic data that covers different scenarios and conditions.
+
+To ensure that the dataset is representative of the scenarios and conditions you aim to simulate in your thesis, consider the following guidelines:
+
+1.	Coverage of parameter space: The dataset should cover a wide range of input parameter values. For example, consider variations in distance, frequency, antenna heights, transmitter powers, and environmental factors (e.g., urban, suburban, rural). This will help the deep learning models learn and generalize across different scenarios.
+
+2.	Realistic distributions: Ensure that the dataset reflects the statistical distributions observed in real-world wireless communication scenarios. For instance, if certain parameters follow log-normal or Rayleigh distributions, incorporate those characteristics into the dataset.
+
+3.	Adequate sample size: The dataset size should be sufficient to train and validate your deep learning models effectively. While there is no fixed rule, a larger dataset generally allows for better generalization. Aim for a dataset with thousands to tens of thousands of samples, depending on the complexity of your problem and the deep learning models used.
+
+4.	Balance across classes or scenarios: If you have different classes or scenarios you want to represent, ensure that the dataset provides a balanced representation of these classes. This will prevent bias and improve the models' ability to accurately predict path loss in different scenarios.
+
+5.	Consider domain-specific knowledge: Incorporate domain-specific knowledge and expert opinions to guide the selection and generation of dataset samples. This will help ensure that the dataset captures the important factors that influence path loss in your specific context.
+
+Remember to document the sources of your dataset and any preprocessing steps applied to it for transparency and reproducibility purposes.
+
+
+v.	Perform simulations and data collection: Run simulations using the defined network configuration and deep learning models. Collect data on path loss values, input parameters, and other relevant metrics during the simulations. Ensure to capture a diverse set of scenarios to validate the performance and accuracy of your path loss prediction model.
+
+To perform simulations and collect data for your path loss prediction model, follow these steps:
+
+a.	Set up the simulation environment: Configure the network parameters, such as the number of nodes, their positions (2D or 3D), transmission power, and antenna characteristics. Define the frequency at which the network operates and specify the path loss model to be used.
+
+b.	Implement the deep learning model: Integrate your trained deep learning model into the simulation tool. This model will take input parameters, such as distance, frequency, and antenna characteristics, and predict the path loss value.
+
+c.	Define simulation scenarios: Create a diverse set of scenarios that cover various network configurations and environmental conditions. Vary the distances between nodes, frequencies, and other relevant parameters to capture different propagation characteristics.
+
+d.	Run simulations: Execute the simulations using the defined network configuration and scenarios. Each simulation run will generate a set of path loss values predicted by your deep learning model.
+
+e.	Collect data: During the simulations, record the predicted path loss values, as well as the corresponding input parameters and other relevant metrics. Store this data for further analysis and evaluation.
+
+f.	Validate the model performance: Compare the predicted path loss values from your deep learning model with the actual path loss values obtained from the selected path loss model or empirical measurements. Assess the accuracy and performance of your deep learning model across different scenarios.
+
+g.	Analyze the collected data: Use statistical analysis techniques to evaluate the performance and accuracy of your path loss prediction model. Calculate error metrics, such as mean absolute error or root mean square error, to quantify the model's predictive capabilities.
+
+h.	Validate the results: Validate your findings by comparing them with existing literature or empirical measurements. Ensure that your deep learning model provides accurate and reliable predictions of path loss in various scenarios.
+
+By performing simulations and collecting data across a diverse range of scenarios, you can evaluate the performance and accuracy of your deep learning-based path loss prediction model. This data will provide insights into the effectiveness of your model and its suitability for predicting path loss in 5G wireless communication networks.
+
+vi.	Evaluate and analyze the results: Analyze the collected data and evaluate the performance of your deep learning-based path loss prediction model. Assess the accuracy, robustness, and generalization capabilities of the model in different scenarios and compare it with traditional path loss models.
+
+To evaluate and analyze the results of your deep learning-based path loss prediction model, and assess its accuracy, robustness, and generalization capabilities in different scenarios compared to traditional path loss models, you can follow these steps:
+
+a.	Define evaluation metrics: Determine appropriate metrics to assess the performance of your path loss prediction model. Common metrics include mean squared error (MSE), root mean squared error (RMSE), mean absolute error (MAE), and coefficient of determination (R-squared). These metrics quantify the prediction accuracy, deviation from the actual values, and the model's ability to explain the variance in the data.
+
+b.	Split the dataset: Divide your collected data into training, validation, and testing sets. The training set will be used to train the deep learning model, the validation set to fine-tune hyperparameters and evaluate model performance during training, and the testing set for final evaluation and comparison with traditional models.
+
+c.	Train and validate the deep learning model: Use the training set to train your deep learning-based path loss prediction model. Monitor the model's performance on the validation set, adjusting hyperparameters as needed to optimize its performance. This step ensures that the model generalizes well to unseen data.
+
+d.	Evaluate the model's accuracy: Apply the trained deep learning model to the testing set and calculate the evaluation metrics (e.g., MSE, RMSE, MAE, R-squared) to assess its accuracy in predicting path loss values. Compare these metrics with those of traditional path loss models to determine if the deep learning model outperforms them.
+
+e.	Assess model robustness: Test the robustness of your deep learning model by introducing variations in input parameters and environmental conditions. For example, you can evaluate the model's performance under different transmission powers, frequencies, antenna configurations, and interference levels. Analyze how well the model handles these variations and whether it provides consistent and reliable predictions.
+
+f.	Generalization capability analysis: Assess the generalization capabilities of your deep learning model by testing it on scenarios that were not included in the training dataset. Use unseen data collected from different network configurations, locations, or operating conditions. Measure the model's ability to accurately predict path loss in these new scenarios and compare it with traditional models.
+
+g.	Statistical significance analysis: Perform statistical tests, such as hypothesis testing or confidence interval analysis, to determine if the performance improvement of your deep learning model over traditional models is statistically significant. This analysis will provide evidence of the effectiveness of your approach.
+
+h.	Present and discuss the results: Present the evaluation metrics, statistical analysis, and comparisons between your deep learning-based model and traditional models in your thesis. Discuss the implications of the findings, highlighting the strengths and weaknesses of your model and its potential for practical implementation in 5G networks.
+
+By following these steps, you can thoroughly evaluate and analyze the performance of your deep learning-based path loss prediction model, assess its accuracy, robustness, and generalization capabilities, and make meaningful comparisons with traditional path loss models.
+
+vii.	Draw conclusions and discuss implications: Based on the results obtained, draw conclusions regarding the effectiveness of using deep learning techniques for path loss prediction in 5G networks. Discuss the implications of your findings for mobile phone network design, optimization, and future research directions.
+
+Remember to document your methodology, experimental setup, and results thoroughly in your thesis. Additionally, ensure ethical considerations such as privacy and data protection are addressed throughout your research.
+
+
+
+MODELLING OF 
+WIRELESS COMMUNICATION
+CHANNEL LATENCY FOR 
+MOBILE PHONE NETWORK USING 
+DEEP LEARNING TECHNIQUES
+
+Abstract
+RF Signal Simulator    
+Simulation Environment
+MATLAB Simulation Tool 
+Path Loss Model Library  
+Deep Learning Module   
+Input Parameter Manager           
+Synthetic Data Generator                
+Dataset Preprocessing Module               
+Model Selection and Architecture Designer 
+Deep Learning Model Trainer    
+Model Evaluation and Validation Module  
+Model Integration Module 
+Simulation Executor and Result Analyzer
+## Abstract
+
+This thesis presents a detailed investigation of the path loss prediction for fifth generation (5G) wireless communication devices using deep learning techniques. Specifically, we will focus on channel modelling for mobile phone networks. The main objective of this work is to identify the relationships between the path loss components and apply deep learning algorithms to predict the path loss for a given communication link using these components. By applying a novel hybrid deep learning and Bayesian modelling technique, we demonstrate how artificial neural networks (ANNs) can be used to improve the accuracy of path loss estimation. Furthermore, we show how this technique can be used to improve the performance of various mobile communication network system components, such as interference, spectrum usage, coverage and capacity. The results of this work indicate that mobile communication systems can be improved significantly by applying a combination of deep learning and Bayesian modelling techniques for path loss prediction.
+
+Introduction
+
+The research gap in this study lies in the lack of clarity regarding the specific application of deep learning algorithms to wireless communication signals in a communication channel. Previous studies have demonstrated the use of classification techniques for investigating Channel State Information (CSI) in wireless communication, but without providing details on the technology or scope of the results, including a comparison of performance measures such as accuracy, precision, and misclassifications. Accurately predicting channel parameters is a significant challenge in current communication systems, and deep learning techniques have the potential to improve prediction accuracy while reducing complexity. However, further clarification is needed regarding the specific parameters to be investigated in this study. Additionally, alternative algorithms beyond artificial neural networks (ANN) should be explored and their performance compared with the proposed approach. The research aims to address these gaps by leveraging operational data and applying appropriate algorithms to mitigate severe fading in the mmWave band. Furthermore, the study will evaluate the effectiveness of alternative classification techniques and compare their results with the proposed model. By focusing on predicting channel state information using data-driven approaches and deep learning algorithms, this research contributes to advancing wireless communication channel modeling in the context of 4G systems, specifically targeting the modeling of wireless communication channel latency for mobile phone networks.
+Research Gap
+The research gap in this study pertains to the lack of clarity regarding the application of deep learning algorithms specifically to wireless communication signals in a communication channel. Previous studies have demonstrated the use of classification techniques to investigate Channel State Information (CSI) in a wireless communication environment, but without specifying the technology or scope of the results, including a comparison of performance measures such as accuracy, precision, and misclassifications.
+
+Accurately predicting channel parameters is a significant challenge in current communication systems (Nazir & Sood, 2021). Wireless channels are highly dynamic and subject to various forms of interference, such as fading, noise, and multipath propagation (Molisch et al., 2006). These factors introduce uncertainty and fluctuations in the channel characteristics, making it difficult to precisely estimate channel parameters (Zhang et al., 2023).
+
+The complexity of wireless communication systems, including multiple antennas, different frequency bands, and varying transmission environments, adds to the challenge of accurately predicting channel parameters (Mao et al., 2018). The interactions between these elements result in complex channel behaviors that are challenging to model accurately (Huang et al., 2020; T. Wang et al., 2017).
+
+Moreover, the increasing demand for higher data rates and reliable communication necessitates accurate channel parameter estimation (Nazir & Sood, 2021). Channel parameters, such as path loss, delay, Doppler spread, and large-scale fading, directly affect the quality of the received signal and impact system performance (Xu et al., 2021). Without accurate prediction of these parameters, it becomes difficult to optimize system resources, design efficient communication schemes, and ensure reliable connectivity (Hasini & Reddy, 2023).
+
+Therefore, addressing the challenge of accurately predicting channel parameters is crucial for improving the performance and efficiency of wireless communication systems (Nazir & Sood, 2021). Deep learning algorithms offer promising capabilities to tackle this challenge by leveraging large-scale datasets and learning complex patterns from the data (Kim et al., 2023). By enhancing prediction accuracy, deep learning techniques can enable better resource allocation, interference mitigation, and overall system optimization in wireless communication systems (Bano et al., 2023).
+
+By leveraging deep learning techniques, it is possible to enhance prediction accuracy while reducing complexity. Deep learning can be employed to predict and estimate various wireless channel parameters, including path loss, delay, path loss exponent, frequency, Doppler spread, and random variables associated with large-scale fading. However, further clarification is needed regarding the specific parameters that will be investigated in this study.
+
+Deep learning algorithms have been recognized as pivotal in estimating channel parameters, including path loss components and large-scale random variables (Nazir & Sood, 2021). Nonetheless, it is imperative to propose and evaluate modified algorithms that have the potential to surpass previous approaches (Kim et al., 2023). Furthermore, exploring alternative algorithms beyond artificial neural networks (ANN) and comparing their outcomes with the proposed approach is necessary (Bano et al., 2023).
+
+
+Classification techniques, specifically employing artificial neural networks (ANN) with multilayer perception, will be utilized to predict the path loss of multiple transmitted links (S. Aldossari & Chen, 2019). However, it is necessary to evaluate the effectiveness of alternative classification techniques and compare their results with the proposed model (Joo et al., 2019).
+
+This thesis will focus on predicting channel state information using data-driven approaches, with a specific emphasis on utilizing deep learning algorithms to address wireless issues in the new era of 5G (Kim et al., 2023). The research aims to model the wireless communication channel latency for mobile phone networks using deep learning techniques, contributing to the advancement of wireless communication channel modeling in the context of 4G systems (Aldossari, 2020).
+
+
+Statement of the Problem
+The research gap in this study lies in the lack of clarity regarding the specific application of deep learning algorithms to wireless communication signals in a communication channel. Previous studies have demonstrated the use of classification techniques for investigating Channel State Information (CSI) in wireless communication, but without providing details on the technology or scope of the results, including a comparison of performance measures such as accuracy, precision, and misclassifications (Zhang et al., 2023). Accurately predicting channel parameters is a significant challenge in current communication systems, and deep learning techniques have the potential to improve prediction accuracy while reducing complexity (Hasini & Reddy, 2023). However, further clarification is needed regarding the specific parameters to be investigated in this study. Additionally, alternative algorithms beyond artificial neural networks (ANN) should be explored and their performance compared to the proposed approach (Luo & Zhang, 2023). The research aims to address these gaps by leveraging operational data and applying appropriate algorithms to mitigate severe fading in the mmWave band (Bano et al., 2023). Furthermore, the study will evaluate the effectiveness of alternative classification techniques and compare their results with the proposed model (Kim et al., 2023). By focusing on predicting channel state information using data-driven approaches and deep learning algorithms, this research contributes to advancing wireless communication channel modeling in the context of 4G systems, specifically targeting the modeling of wireless communication channel latency for mobile phone networks (Luo & Zhang, 2023).
+
+Research Objectives
+i.	To investigate the application of deep learning algorithms for wireless communication signals in a communication channel. 
+Research Question: How can deep learning algorithms be effectively applied to wireless communication signals in a communication channel?
+ii.	To compare the performance of classification techniques in predicting Channel State Information (CSI) with a focus on accuracy, precision, and misclassifications. 
+Research Question: How do different classification techniques perform in predicting Channel State Information (CSI), and how do they compare in terms of accuracy, precision, and misclassifications?
+iii.	To explore alternative algorithms beyond artificial neural networks (ANN) for predicting channel parameters and evaluate their performance. 
+Research Question: What alternative algorithms beyond artificial neural networks (ANN) can be used for predicting channel parameters, and how do they perform in comparison to the proposed approach?
+iv.	To model wireless communication channel latency for mobile phone networks using data-driven approaches and deep learning techniques. 
+Research Question: How can data-driven approaches and deep learning techniques be utilized to effectively model wireless communication channel latency for mobile phone networks?
+Research Question
+i.	Research Question: How can deep learning algorithms be effectively applied to wireless communication signals in a communication channel?
+ii.	Research Question: How do different classification techniques perform in predicting Channel State Information (CSI), and how do they compare in terms of accuracy, precision, and misclassifications?
+iii.	Research Question: What alternative algorithms beyond artificial neural networks (ANN) can be used for predicting channel parameters, and how do they perform in comparison to the proposed approach?
+iv.	Research Question: How can data-driven approaches and deep learning techniques be utilized to effectively model wireless communication channel latency for mobile phone networks?
+
+Literature Review
+The existing literature in ML wireless channel modeling has made significant contributions to predicting and estimating wireless channel parameters. However, there are several critical gaps and limitations that need to be addressed. One major issue is the lack of clarity and comprehensive analysis in previous studies regarding the application of deep learning algorithms to wireless communication signals in a communication channel. Although some studies have employed classification techniques to investigate Channel State Information (CSI) in wireless communication, they often lack details on the technology and scope of the results (Das et al., 2022; Zhang et al., 2020).
+
+Accurately predicting channel parameters poses a significant challenge in current communication systems (Aldossari, 2020). While previous approaches have utilized ANN algorithms with multilayer perception for path loss prediction (S. Aldossari & Chen, 2019), it is essential to propose and consider modified algorithms that have the potential to outperform these approaches.  Furthermore, exploring alternative algorithms beyond ANN is necessary to assess their effectiveness and compare their performance with the proposed model (Joo et al., 2019).
+
+The research gap emphasizes the need for accuracy in predicting wireless channel parameters and the importance of measures such as precision and misclassification. While ANN algorithms have shown promise, it is crucial to critically evaluate and compare them with alternative deep learning algorithms (Kim et al., 2023). This entails considering other machine learning techniques that may yield better results and have the potential for incorporation into the research framework (Ahmed et al., 2019; S. Aldossari & Chen, 2019).
+
+To address these gaps, the research objectives focus on leveraging operational data, applying appropriate algorithms, and utilizing deep learning techniques to mitigate severe fading in the mmWave band (Aldossari et al., 2021). The study aims to advance wireless communication channel modeling in the context of 4G systems by predicting channel state information and modeling wireless communication channel latency for mobile phone networks (Aldossari, 2020). By addressing the lack of clarity in previous studies and comparing the performance of alternative algorithms, the research aims to contribute to the improvement of wireless communication channel modeling in terms of accuracy and complexity reduction.
+
+In summary, the review of the existing literature highlights the research gap in terms of lack of clarity, classification issues, and the need for accuracy in predicting wireless channel parameters. It emphasizes the importance of exploring alternative deep learning algorithms beyond ANN and comparing their performance. The research objectives aim to address these gaps and contribute to advancing wireless communication channel modeling in the context of 4G systems.
+
+
+
+Channel Estimation and Signal Detection in OFDM Systems using Deep Learning (Hasini & Reddy, 2023).
+Channel Measurement, Modeling, and Simulation for 6G: A Survey and Tutorial (Zhang et al., 2023).
+How Generative Models Improve LOS Estimation in 6G Non-Terrestrial Networks (Bano et al., 2023).
+Propagation Path Loss Models for 5G Urban Microand Macro-Cellular Scenarios (Sun et al., 2016)
+Towards Deep Learning-aided Wireless Channel Estimation and Channel State Information Feedback for 6G (Kim et al., 2023).
+ 
+Wireless Network Design Optimization for Computer Teaching with Deep Reinforcement Learning Application (Luo & Zhang, 2023).
+The research proposed a novel approach to optimize dynamic channel access in wireless networks using deep reinforcement learning algorithms and a long short-term memory (LSTM) network. The approach was focused on a multi-user scenario and considered collision and interference caused by simultaneous channel access. The research demonstrated the effectiveness of the proposed approach in maximizing network benefits without requiring online coordination or information exchange between users.
+
+One limitation of the research is that it primarily focuses on the technical aspects of dynamic channel access optimization in wireless networks. It does not explicitly address potential ethical, legal, or social implications that may arise from implementing the proposed approach in real-world educational settings or other domains
+
+The research employs a deep reinforcement learning algorithm combined with a long short-term memory (LSTM) network for dynamic channel access optimization in wireless networks. The algorithm enables users to select channels and transmit data, while the LSTM network utilizes historical information to estimate the true state of the system.
+
+The research presents an innovative approach to addressing the optimization of dynamic channel access in wireless networks. By leveraging deep reinforcement learning algorithms and LSTM networks, the proposed approach demonstrates promising results in terms of network throughput, collision rates, and stability. However, it is important to conduct further research to explore the potential challenges and trade-offs that may arise when implementing this approach in real-world scenarios. This would help ensure that the proposed solution is practical, scalable, and ethically sound. Additionally, the research highlights the broad applications of the proposed approach in various fields, showcasing its potential impact on wireless network performance optimization in areas such as IoT, smart cities, industrial automation, and next-generation networks.
+
+One potential research gap is the lack of discussion on the potential drawbacks or challenges associated with implementing the proposed approach in real-world scenarios. Further investigation into the practical feasibility, scalability, and potential trade-offs of using deep reinforcement learning algorithms and LSTM networks for dynamic channel access optimization would provide valuable insights.
+Emulation of Multipath Solutions in Heterogeneous Wireless Networks Over Ns-3 Platform (Hapanchak & Costa, 2022).
+ 
+Wireless communication channel modeling using machine learning (Kamruzzaman et al., 2022).
+Outcome of the Research: 
+The research focuses on channel modeling and estimation techniques in wireless communication systems, particularly in the context of 5G, Internet of Things (IoT), and the upcoming 6G. The study proposes machine learning methods, specifically an ETM-ML paradigm, for evaluating the transmission medium and predicting Quality of Transmission (QoT). The proposed methods show outstanding accuracy and have the potential to reduce infrastructure costs.
+
+Limitation of the Research: 
+One potential limitation of the research is that it does not provide specific details on the machine learning algorithms used or the datasets utilized for training and evaluation. This lack of information makes it difficult to assess the reproducibility and generalizability of the proposed methods.
+
+Method employed for the research: 
+The research employs machine learning methods, including an ETM-ML paradigm, for channel modeling and QoT prediction. However, the specific machine learning algorithms and techniques used in the study are not mentioned in the abstract.
+
+Research Gap: 
+One research gap is the lack of discussion on the interpretability and explainability of the proposed machine learning models. Understanding the factors and features that contribute to accurate QoT prediction is important for stakeholders to trust and make informed decisions based on the models. Further research could explore methods to improve interpretability and provide insights into the learned representations.
+
+My finding: 
+The research highlights the importance of channel modeling and estimation in wireless communication systems, particularly in the context of emerging technologies like 5G and IoT. The proposed machine learning methods, including the ETM-ML paradigm, show promising results in terms of QoT prediction accuracy and potential cost reduction. However, the lack of specific details regarding the machine learning algorithms used and the absence of information on interpretability are limitations. Further research is needed to address these gaps and validate the proposed methods in various usage cases and scenarios.
+
+ 
+A Theoretical Framework for the 6G Wireless Communication Standard Vision, Applications and Challenges (Nazir & Sood, 2021).
+Deep Learning Method for Path Loss Prediction in Mobile Communication Systems (Xu et al., 2021).
+Machine Learning in Beyond 5G/6G Networks—State-of-the-Art and Future Trends (Rekkas et al., 2021)
+ 
+PredictiveWireless Channel Modeling of MmWave Bands Using Machine Learning (Aldosary et al., 2021).
+Outcome of the Research: 
+The research focused on the application of machine learning (ML) techniques in wireless communication systems, specifically in the context of higher millimeter wave (mmWave) bands and beyond 5G (B5G) technologies. The study proposes a data-driven approach to assist base stations in predicting frequency bands and path loss. ML algorithms, including Multilayer Perceptrons (MLP) and Random Forests, are used and compared for their performance. The research demonstrates that ML techniques, combined with wireless channel modeling, show promising accuracy in predicting frequency bands and path loss in wireless communication systems.
+
+Limitation of the Research: 
+The findings do not provide specific details on the datasets used for training and evaluation, nor does it elaborate on the modifications made to the Random Forest algorithm using an unsupervised PCA algorithm. Additionally, the research failed to mention potential limitations or challenges faced during the research.
+
+Method of the research: 
+The research utilizes machine learning techniques, including Multilayer Perceptrons (MLP) and Random Forests, to predict frequency bands and path loss in wireless communication systems. The research used optimization methods to update internal variables and improve system performance but did not provide specific details.
+Research Gap: 
+One research gap is the lack of comparison with other AI techniques beyond MLP and Random Forests. Exploring and comparing the performance of other ML and deep learning algorithms could provide further insights into the potential of different approaches in predicting frequency bands and path loss. Additionally, the researchers suggested future work could involve exploring other wireless channel measurement features, indicating a potential gap in considering a broader range of input features for prediction.
+Finding: 
+The research highlights the potential of applying machine learning techniques, specifically MLP and Random Forests, to assist base stations in predicting frequency bands and path loss in wireless communication systems. The data-driven approach and wireless channel modeling contribute to the accuracy of the predictions. However, The details on the datasets used is lacking, modifications made to the Random Forest algorithm, and potential limitations. Further research could involve comparing other AI techniques and considering a broader range of wireless channel measurement features to enhance the prediction accuracy in wireless communication systems.
+
+ 
+6G White Paper on Machine Learning in Wireless Communication Networks (Ali et al., 2020).
+6G WIRELESS CHANNEL MEASUREMENTS AND MODELS (C. X. Wang et al., 2020).
+Artificial intelligence andwireless communications (J. Wang et al., 2020)
+Artifificial Intelligence Towards the Wireless Channel Modeling Communications in 5G 2022
+Channel Modeling and Characteristics for 6G Wireless Communications (Jiang et al., 2021).
+Channel Modeling for Wireless Communications using Ambit Processes (Rakesh & Viterbo, 2020).
+Monte-Carlo-based optical wireless underwater channel modeling with oceanic turbulence (Das et al., 2022; Zhang et al., 2020).
+Predicting the Path Loss of Wireless Channel Models Using Machine Learning Techniques in MmWave Urban Communications (S. Aldossari & Chen, 2019).
+A Deep Q-Learning Method for Downlink Power Allocation in Multi-Cell Networksc (Ahmed et al., 2019).
+A Vision of 6G Wireless Systems: Applications, Trends,Technologies, and Open Research Problems (Saad et al., 2019).
+Characterization of path loss model for wireless communication channel modelling (Sirdeshpande & Udupi, 2020).
+Deep Learning-Based Channel Prediction in Realistic Vehicular Communications (Joo et al., 2019).
+ 
+DeepChannel: Wireless Channel Quality Prediction using Deep Learning (Kulkarni et al., 2020).
+Research outcome:
+The research presents DeepChannel, a sequence-to-sequence deep learning model that accurately predicts future wireless signal strength variations based on past signal strength data. The model is adaptable to different networks, sampling rates, mobility patterns, and communication standards. Comparisons with linear regression and ARIMA models demonstrate that DeepChannel outperforms these baselines in various network settings, including 4G LTE, WiFi, WiMAX, and Zigbee.
+
+Limitation of the research:
+The limitations might lie in the specific scenarios or conditions under which the model was tested. The generalizability of DeepChannel to other networks or specific edge cases could be an area for further investigation.
+
+Method employed for the research:
+The research utilizes an encoder-decoder based sequence-to-sequence deep learning model called DeepChannel. Two versions of DeepChannel are considered, one using LSTM (Long Short-Term Memory) and the other using GRU (Gated Recurrent Unit) as their basic cell structure. The model takes prior channel quality data as input and predicts future signal strength variations.
+
+Research gap:
+The research gap is on the lack of discussion regarding the model's limitations and its applicability to specific networking scenarios. Further exploration into the model's performance in challenging environments, edge cases, or different network settings could help identify potential research gaps.
+
+Finding:
+The research demonstrates that DeepChannel, the proposed deep learning model, surpasses the performance of linear regression and ARIMA models in predicting future signal strength variations. It performs well across various technologies (4G LTE, WiFi, WiMAX, and Zigbee) and different levels of user mobility, both in commercial and industrial environments. This suggests that DeepChannel has practical applicability and potential for improving wireless network performance in diverse scenarios.
+ 
+Machine Learning for Wireless Communication Channel Modeling: An Overview (S. M. Aldossari & Chen, 2019).
+Model-Aided Deep Learning Method for Path Loss Prediction in Mobile Communication Systems at 2.6  (Thrane et al., 2020).
+Statistical Sparse Channel Modeling for Measured and Simulated Wireless Temporal Channels (Cui et al., 2019).
+Wireless Channel Modeling Perspectives for Ultra-Reliable Communications (Eggers et al., 2019).
+Wireless channel modeling perspectives for ultra-reliable low latency communications (Eggers et al., 2017).
+Wireless Networks Design in the Era of Deep Learning: Model-Based, AI-Based, or Both? (Zappone et al., 2019).
+Channel Characterization and Modeling for 5G and Future Wireless System Based on Big Data(Liu et al., 2018).
+CHANNEL MODELS AND MEASUREMENTS FOR 5G (Zhang et al., 2018).
+Deep Learning for Intelligent Wireless Networks:A Comprehensive Survey (Mao et al., 2018).
+Machine Learning for Wireless Connectivity and Security of Cellular-Connected UAVs (Challita et al., 2019).
+Predicting Wireless MmWave Massive MIMO Channel Characteristics Using Machine Learning Algorithms (Bai et al., 2018).
+Deep Learning for Wireless Physical Layer:Opportunities and Challenges (Huang et al., 2020; T. Wang et al., 2017).
+Detection Algorithms for Communication Systems Using Deep Learning (Farsad & Goldsmith, 2017).
+Modeling and Analysis of Wireless Channels via the Mixture of Gaussian Distribution (Selim et al., 2016).
+The COST259 Directional Channel Model–Part I: Overview and Methodology (Molisch et al., 2006).
+Cross-Layer Optimization for OFDM Wireless Networks—Part I: Theoretical Framework (Song & Li, 2005).
+Future channel modelling needs in ITU recommendations (Salous, 2023).
+Deep Learning for Wireless Communications (Erpek et al., 2020).
+
+ 
+REFERENCES
+Ahmed, K. I., Tabassum, H., & Hossain, E. (2019). Deep learning for radio resource allocation in multi-cell networks. IEEE Network, 33(6), 188–195. 
+Aldosary, A. M., Aldossari, S. A., Chen, K.-C., Mohamed, E. M., & Al-Saman, A. (2021). Predictive wireless channel modeling of mmwave bands using machine learning. Electronics, 10(24), 3114. 
+Aldossari, S., & Chen, K. C. (2019). Predicting the Path Loss of Wireless Channel Models Using Machine Learning Techniques in MmWave Urban Communications. International Symposium on Wireless Personal Multimedia Communications, WPMC, 2019-November. https://doi.org/10.1109/WPMC48795.2019.9096057 
+Aldossari, S. M., & Chen, K. C. (2019). Machine Learning for Wireless Communication Channel Modeling: An Overview. Wireless Personal Communications. https://doi.org/10.1007/s11277-019-06275-4 
+Ali, S., Saad, W., Rajatheva, N., Chang, K., Steinbach, D., Sliwa, B., Wietfeld, C., Mei, K., Shiri, H., & Zepernick, H.-J. (2020). 6G white paper on machine learning in wireless communication networks. ArXiv Preprint ArXiv:2004.13875. 
+Bai, L., Wang, C. X., Huang, J., Xu, Q., Yang, Y., Goussetis, G., Sun, J., & Zhang, W. (2018). Predicting Wireless MmWave Massive MIMO Channel Characteristics Using Machine Learning Algorithms. Wireless Communications and Mobile Computing, 2018. https://doi.org/10.1155/2018/9783863 
+Bano, S., Machumilane, A., Cassarà, P., & Gotta, A. (2023). How Generative Models Improve LOS Estimation in 6G Non-Terrestrial Networks. ArXiv Preprint ArXiv:2305.18845. 
+Challita, U., Ferdowsi, A., Chen, M., & Saad, W. (2019). Machine learning for wireless connectivity and security of cellular-connected UAVs. IEEE Wireless Communications, 26(1), 28–35. 
+Cui, P. F., Zhang, J. A., Lu, W. J., Guo, Y. J., & Zhu, H. (2019). Statistical Sparse Channel Modeling for Measured and Simulated Wireless Temporal Channels. IEEE Transactions on Wireless Communications, 18(12). https://doi.org/10.1109/TWC.2019.2940017 
+Das, S., Rahman, Z., & Zafaruddin, S. M. (2022). Optical Wireless Transmissions over Multi-layer Underwater Channels with Generalized Gamma Fading. IEEE Vehicular Technology Conference, 2022-June. https://doi.org/10.1109/VTC2022-Spring54318.2022.9861003 
+Eggers, P. C. F., Angjelichinoski, M., & Popovski, P. (2017). Wireless channel modeling perspectives for ultra-reliable low latency communications. ArXiv Preprint ArXiv:1705.01725. 
+Eggers, P. C. F., Angjelichinoski, M., & Popovski, P. (2019). Wireless channel modeling perspectives for ultra-reliable communications. IEEE Transactions on Wireless Communications, 18(4). https://doi.org/10.1109/TWC.2019.2901788 
+Erpek, T., O’Shea, T. J., Sagduyu, Y. E., Shi, Y., & Clancy, T. C. (2020). Deep Learning for Wireless Communications. In Studies in Computational Intelligence (Vol. 867). https://doi.org/10.1007/978-3-030-31764-5_9 
+Farsad, N., & Goldsmith, A. (2017). Detection algorithms for communication systems using deep learning. ArXiv Preprint ArXiv:1705.08044. 
+Hapanchak, V. S., & Costa, A. D. (2022). Emulation of Multipath Solutions in Heterogeneous Wireless Networks Over Ns-3 Platform. Lecture Notes of the Institute for Computer Sciences, Social-Informatics and Telecommunications Engineering, LNICST, 424 LNICST. https://doi.org/10.1007/978-3-030-97124-3_1 
+Hasini, D., & Reddy, K. R. L. (2023). Channel Estimation and Signal Detection in OFDM Systems using Deep Learning. 2023 9th International Conference on Advanced Computing and Communication Systems (ICACCS), 1, 1337–1340. 
+Huang, H., Guo, S., Gui, G., Yang, Z., Zhang, J., Sari, H., & Adachi, F. (2020). Deep learning for physical-layer 5g wireless techniques: Opportunities, challenges and solutions. IEEE Wireless Communications, 27(1). https://doi.org/10.1109/MWC.2019.1900027 
+Jiang, H., Mukherjee, M., Zhou, J., & Lloret, J. (2021). Channel Modeling and Characteristics for 6G Wireless Communications. IEEE Network, 35(1). https://doi.org/10.1109/MNET.011.2000348 
+Joo, J., Park, M. C., Han, D. S., & Pejovic, V. (2019). Deep learning-based channel prediction in realistic vehicular communications. IEEE Access, 7, 27846–27858. 
+Kamruzzaman, M. M., Hossin, M. A., Alrashdi, I., Alanazi, S., Alruwaili, M., Alshammari, N., Elaiwat, S., & Zaman, R. (2022). Wireless communication channel modeling using machine learning. Transactions on Emerging Telecommunications Technologies. https://doi.org/10.1002/ett.4661 
+Kim, W., Ahn, Y., Kim, J., & Shim, B. (2023). Towards deep learning-aided wireless channel estimation and channel state information feedback for 6G. Journal of Communications and Networks. https://doi.org/10.23919/jcn.2022.000037 
+Kulkarni, A., Seetharam, A., Ramesh, A., & Herath, J. D. (2020). DeepChannel: Wireless channel quality prediction using deep learning. IEEE Transactions on Vehicular Technology, 69(1). https://doi.org/10.1109/TVT.2019.2949954 
+Liu, L., Zhang, J., Salous, S., & Jamsa, T. (2018). Channel Characterization and Modeling for 5G and Future Wireless System Based on Big Data. In Wireless Communications and Mobile Computing (Vol. 2018). https://doi.org/10.1155/2018/1046836 
+Luo, Y., & Zhang, D. (2023). Wireless Network Design Optimization for Computer Teaching with Deep Reinforcement Learning Application. Applied Artificial Intelligence, 37(1), 2218169. 
+Mao, Q., Hu, F., & Hao, Q. (2018). Deep learning for intelligent wireless networks: A comprehensive survey. In IEEE Communications Surveys and Tutorials (Vol. 20, Issue 4). https://doi.org/10.1109/COMST.2018.2846401 
+Molisch, A. F., Asplund, H., Heddergott, R., Steinbauer, M., & Zwick, T. (2006). The COST259 directional channel model-part I: Overview and methodology. IEEE Transactions on Wireless Communications, 5(12). https://doi.org/10.1109/TWC.2006.256966 
+Nazir, F., & Sood, N. (2021). A Theoretical Framework for the 6G Wireless Communication Standard Vision, Applications and Challenges. Proceedings of International Conference on Women Researchers in Electronics and Computing. https://doi.org/10.21467/proceedings.114.43 
+Rakesh, R. T., & Viterbo, E. (2020). Channel modeling for wireless communications using ambit processes. IEEE Transactions on Wireless Communications, 19(12). https://doi.org/10.1109/TWC.2020.3022589 
+Rekkas, V. P., Sotiroudis, S., Sarigiannidis, P., Wan, S., Karagiannidis, G. K., & Goudos, S. K. (2021). Machine learning in beyond 5g/6g networks—state-of-the-art and future trends. In Electronics (Switzerland) (Vol. 10, Issue 22). https://doi.org/10.3390/electronics10222786 
+Saad, W., Bennis, M., & Chen, M. (2019). A vision of 6G wireless systems: Applications, trends, technologies, and open research problems. IEEE Network, 34(3), 134–142. 
+Salous, S. (2023). Future channel modelling needs in ITU recommendations. 2023 17th European Conference on Antennas and Propagation (EuCAP), 1–4. 
+Samad, M. A., Choi, D.-Y., & Choi, K. (2023). Path loss measurement and modeling of 5G network in emergency indoor stairwell at 3.7 and 28 GHz. PloS One, 18(3), e0282781. 
+Selim, B., Alhussein, O., Muhaidat, S., Karagiannidis, G. K., & Liang, J. (2016). Modeling and Analysis of Wireless Channels via the Mixture of Gaussian Distribution. IEEE Transactions on Vehicular Technology, 65(10). https://doi.org/10.1109/TVT.2015.2503351 
+Sirdeshpande, N., & Udupi, V. (2020). Characterization of path loss model for wireless communication channel modelling. Data Technologies and Applications, 54(3). https://doi.org/10.1108/DTA-03-2019-0052 
+Song, G., & Li, Y. (2005). Cross-layer optimization for OFDM wireless networks - Part I: Theoretical framework. IEEE Transactions on Wireless Communications, 4(2). https://doi.org/10.1109/TWC.2004.843065 
+Sun, S., Rappaport, T. S., Rangan, S., Thomas, T. A., Ghosh, A., Kovacs, I. Z., Rodriguez, I., Koymen, O., Partyka, A., & Jarvelainen, J. (2016). Propagation path loss models for 5G urban micro-and macro-cellular scenarios. 2016 IEEE 83rd Vehicular Technology Conference (VTC Spring), 1–6. 
+Thrane, J., Zibar, D., & Christiansen, H. L. (2020). Model-aided deep learning method for path loss prediction in mobile communication systems at 2.6 GHz. Ieee Access, 8, 7925–7936. 
+Varshney, R., Gangal, C., Sharique, Mohd., & Ansari, M. S. (2023). Deep Learning based Wireless Channel Prediction: 5G Scenario. Procedia Computer Science, 218. https://doi.org/10.1016/j.procs.2023.01.236 
+Wang, C. X., Huang, J., Wang, H., Gao, X., You, X., & Hao, Y. (2020). 6G Wireless Channel Measurements and Models: Trends and Challenges. IEEE Vehicular Technology Magazine, 15(4). https://doi.org/10.1109/MVT.2020.3018436 
+Wang, J., Li, R., Wang, J., Ge, Y., Zhang, Q., & Shi, W. (2020). Artificial intelligence and wireless communications. Frontiers of Information Technology & Electronic Engineering, 21, 1413–1425. 
+Wang, T., Wen, C.-K., Wang, H., Gao, F., Jiang, T., & Jin, S. (2017). Deep learning for wireless physical layer: Opportunities and challenges. China Communications, 14(11), 92–111. 
+Xu, Z., Cao, H., Yin, Y., Zhang, X., Wu, L., He, D., & Wang, Y. (2021). Deep Learning Method for Path Loss Prediction in Mobile Communication Systems. 2021 13th International Symposium on Antennas, Propagation and EM Theory (ISAPE), 1–3. 
+Zappone, A., Di Renzo, M., & Debbah, M. (2019). Wireless Networks Design in the Era of Deep Learning: Model-Based, AI-Based, or Both? IEEE Transactions on Communications, 67(10). https://doi.org/10.1109/TCOMM.2019.2924010 
+Zhang, J., Kou, L., Yang, Y., He, F., & Duan, Z. (2020). Monte-Carlo-based optical wireless underwater channel modeling with oceanic turbulence. Optics Communications, 475. https://doi.org/10.1016/j.optcom.2020.126214 
+Zhang, J., Lin, J., Tang, P., Zhang, Y., Xu, H., Gao, T., Miao, H., Chai, Z., Zhou, Z., & Li, Y. (2023). Channel Measurement, Modeling, and Simulation for 6G: A Survey and Tutorial. ArXiv Preprint ArXiv:2305.16616. 
+Zhang, J., Shafi, M., Molisch, A. F., Tufvesson, F., Wu, S., & Kitao, K. (2018). Channel Models and Measurements for 5G. In IEEE Communications Magazine (Vol. 56, Issue 12). https://doi.org/10.1109/MCOM.2018.8570033 
+Zhang, Y., Wen, J., Yang, G., He, Z., & Wang, J. (2019). Path loss prediction based on machine learning: Principle, method, and data expansion. Applied Sciences, 9(9), 1908. 
+  
+_ 
+
